@@ -1,3 +1,6 @@
+// Configures Redux store
+
+
 import { configureStore } from '@reduxjs/toolkit';
 import covidReducer from './covidSlice';
 

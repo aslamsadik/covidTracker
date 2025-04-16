@@ -1,3 +1,5 @@
+// Leaflet map showing static marker with popup data
+
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import { useSelector } from 'react-redux';
 import { RootState } from '../store';

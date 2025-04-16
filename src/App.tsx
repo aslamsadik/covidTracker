@@ -1,4 +1,4 @@
-
+// Main entry with dashboard + chart components
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setCovidData } from './store/covidSlice';

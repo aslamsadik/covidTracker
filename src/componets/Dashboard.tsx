@@ -1,5 +1,6 @@
-
 // components/Dashboard.tsx
+
+// Displays key COVID stats and allows state selection
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '../store';
 import { setSelectedState } from '../store/covidSlice';
@@ -15,6 +16,7 @@ const Dashboard = () => {
 
   return (
     <div className="dashboard">
+      {/* Statistic cards */}
       <div className="stats-cards">
         <div className="card total">Total: {data.totalCases.toLocaleString()}</div>
         <div className="card active">Active: {data.activeCases.toLocaleString()}</div>
@@ -22,7 +24,8 @@ const Dashboard = () => {
         <div className="card deaths">Deaths: {data.deaths.toLocaleString()}</div>
       </div>
 
-      <div className="filter" style={{marginLeft:"40%"}}>
+      {/* Dropdown to filter by state */}
+      <div className="filter" style={{ marginLeft: "40%" }}>
         <label htmlFor="state-select">Filter by State:</label>
         <select id="state-select" value={selectedState} onChange={handleStateChange}>
           <option value="All">All</option>
@@ -37,5 +40,3 @@ const Dashboard = () => {
 };
 
 export default Dashboard;
-
-

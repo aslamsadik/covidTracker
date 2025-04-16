@@ -1,4 +1,7 @@
 // store/covidSlice.ts
+
+// Redux slice for COVID data and state filter
+
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 interface CovidState {

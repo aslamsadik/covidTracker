@@ -1,3 +1,4 @@
+// Displays 7-day simulated trends for total cases, recovered, and deaths
 
 import React from 'react';
 import Plot from 'react-plotly.js';
