@@ -54,9 +54,9 @@ function App() {
       const data = await fetchCovidData();
       dispatch(setCovidData(data));
     };
-
     getData();
   }, [dispatch]);
+  
 
   return (
     <div className="App">

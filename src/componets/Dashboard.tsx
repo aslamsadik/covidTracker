@@ -26,35 +26,33 @@
 // export default Dashboard;
 
 // src/components/Dashboard.tsx
-import { useSelector } from 'react-redux';
+// components/Dashboard.tsx
+import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '../store';
-import { useState } from 'react';
+import { setSelectedState } from '../store/covidSlice';
 
 const Dashboard = () => {
-  const { totalCases, activeCases, recovered, deaths } = useSelector(
-    (state: RootState) => state.covid
-  );
-
-  const [selectedState, setSelectedState] = useState('');
+  const dispatch = useDispatch();
+  const selectedState = useSelector((state: RootState) => state.covid.selectedState);
+  const data = useSelector((state: RootState) => state.covid.dataByState[selectedState]);
 
   const handleStateChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setSelectedState(e.target.value);
-    // You can add more logic here if using a real API or filter data per state
+    dispatch(setSelectedState(e.target.value));
   };
 
   return (
     <div className="dashboard">
       <div className="stats-cards">
-        <div className="card total">Total: {totalCases.toLocaleString()}</div>
-        <div className="card active">Active: {activeCases.toLocaleString()}</div>
-        <div className="card recovered">Recovered: {recovered.toLocaleString()}</div>
-        <div className="card deaths">Deaths: {deaths.toLocaleString()}</div>
+        <div className="card total">Total: {data.totalCases.toLocaleString()}</div>
+        <div className="card active">Active: {data.activeCases.toLocaleString()}</div>
+        <div className="card recovered">Recovered: {data.recovered.toLocaleString()}</div>
+        <div className="card deaths">Deaths: {data.deaths.toLocaleString()}</div>
       </div>
 
       <div className="filter">
         <label htmlFor="state-select">Filter by State:</label>
         <select id="state-select" value={selectedState} onChange={handleStateChange}>
-          <option value="">All</option>
+          <option value="All">All</option>
           <option value="Maharashtra">Maharashtra</option>
           <option value="Kerala">Kerala</option>
           <option value="Delhi">Delhi</option>
@@ -66,5 +64,6 @@ const Dashboard = () => {
 };
 
 export default Dashboard;
+
 
 

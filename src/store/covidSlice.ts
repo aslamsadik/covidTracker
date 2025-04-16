@@ -1,31 +1,35 @@
+// store/covidSlice.ts
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 interface CovidState {
-  totalCases: number;
-  activeCases: number;
-  recovered: number;
-  deaths: number;
+  dataByState: Record<string, { totalCases: number; activeCases: number; recovered: number; deaths: number }>;
+  selectedState: string;
 }
 
 const initialState: CovidState = {
-  totalCases: 0,
-  activeCases: 0,
-  recovered: 0,
-  deaths: 0,
+  dataByState: {
+    All: {
+      totalCases: 5000000,
+      activeCases: 200000,
+      recovered: 4700000,
+      deaths: 100000,
+    },
+  },
+  selectedState: 'All',
 };
 
 const covidSlice = createSlice({
   name: 'covid',
   initialState,
   reducers: {
-    setCovidData: (state, action: PayloadAction<CovidState>) => {
-      state.totalCases = action.payload.totalCases;
-      state.activeCases = action.payload.activeCases;
-      state.recovered = action.payload.recovered;
-      state.deaths = action.payload.deaths;
+    setCovidData: (state, action: PayloadAction<CovidState['dataByState']>) => {
+      state.dataByState = action.payload;
+    },
+    setSelectedState: (state, action: PayloadAction<string>) => {
+      state.selectedState = action.payload;
     },
   },
 });
 
-export const { setCovidData } = covidSlice.actions;
+export const { setCovidData, setSelectedState } = covidSlice.actions;
 export default covidSlice.reducer;
