@@ -16,7 +16,6 @@ const PieChart = () => {
 
   return (
     <div>
-      <Plot data={[data]} layout={{ title: 'COVID-19 Cases Distribution' }} />
       <h3>Total Cases: {totalCases}</h3>
       <Plot data={[data]} layout={{ title: 'COVID-19 Cases Distribution' }} />
     </div>

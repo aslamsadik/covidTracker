@@ -8,3 +8,4 @@ export const fetchCovidData = async () => {
     };
   };
   
+
