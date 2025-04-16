@@ -1,53 +1,20 @@
 
-// import React, { useEffect } from 'react';
-// import { useDispatch } from 'react-redux';
-// import { setCovidData } from './store/covidSlice';
-// import { fetchCovidData } from './services/covidService';
-// import Dashboard from './componets/Dashboard';
-// import PieChart from './componets/PieChart';
-// import LineChart from './componets/LineChart';
-// import Map from './componets/Map';
-// import './App.css';
-
-// function App() {
-//   const dispatch = useDispatch();
-
-//   useEffect(() => {
-//     const getData = async () => {
-//       const data = await fetchCovidData();
-//       dispatch(setCovidData(data)); // Dispatch data to Redux store
-//     };
-
-//     getData();
-//   }, [dispatch]);
-
-//   return (
-//     <div className="App">
-//       <h1>COVID Tracker Dashboard</h1>
-//       <Dashboard/>
-//       <PieChart />
-//       <LineChart />
-//       <h1>Map</h1>
-//       <Map />
-//     </div>
-//   );
-// }
-
-// export default App;
-
-
 import React, { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { setCovidData } from './store/covidSlice';
 import { fetchCovidData } from './services/covidService';
 import Dashboard from './componets/Dashboard';
 import PieChart from './componets/PieChart';
 import LineChart from './componets/LineChart';
 import Map from './componets/Map';
+import { RootState } from './store'; // ✅ Add this import
 import './App.css';
 
 function App() {
   const dispatch = useDispatch();
+
+  const covidData = useSelector((state: RootState) => state.covid.dataByState); // ✅ select covid data
+  const selectedState = useSelector((state: RootState) => state.covid.selectedState); // ✅ select selected state
 
   useEffect(() => {
     const getData = async () => {
@@ -56,7 +23,6 @@ function App() {
     };
     getData();
   }, [dispatch]);
-  
 
   return (
     <div className="App">
@@ -66,8 +32,9 @@ function App() {
         <div className="chart-box">
           <PieChart />
         </div>
-        <div className="chart-box">
-          <LineChart />
+        <div className="chart-box" style={{marginLeft:"30px"}}>
+          {/* ✅ Pass required props to LineChart */}
+          <LineChart covidData={covidData} selectedState={selectedState} />
         </div>
       </div>
       <h1>Map</h1>

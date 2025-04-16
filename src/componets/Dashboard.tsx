@@ -1,31 +1,4 @@
-// const Dashboard = () => {
-//   return (
-//     <div className="dashboard">
-//       <div className="stats-cards">
-//         <div className="card total">Total: 00</div>
-//         <div className="card active">Active: 00</div>
-//         <div className="card recovered">Recovered: 00</div>
-//         <div className="card deaths">Deaths: 00</div>
-//       </div>
 
-//       <div className="chart-section">
-//         <div className="filter">
-//           <label htmlFor="state-select">Filter by State:</label>
-//           <select id="state-select">
-//             <option value="">All</option>
-//             <option value="Maharashtra">Maharashtra</option>
-//             <option value="Kerala">Kerala</option>
-//             {}
-//           </select>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default Dashboard;
-
-// src/components/Dashboard.tsx
 // components/Dashboard.tsx
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '../store';
@@ -64,6 +37,5 @@ const Dashboard = () => {
 };
 
 export default Dashboard;
-
 
 

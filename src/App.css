@@ -1,10 +1,12 @@
 body, html {
   overflow-x: hidden;
   width: 100%;
+  background-color: #7aa4b7;
 }
 
 .App {
   max-width: 1200px;
+  justify-content: space-between;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
@@ -55,7 +57,7 @@ body, html {
   min-width: 250px;
   background: #fff;
   border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  box-shadow: 0 0 10px rgba(99, 2, 31, 0.1);
   padding: 10px;
   display: flex;
   align-items: center;

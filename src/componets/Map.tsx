@@ -11,7 +11,7 @@ const Map = () => {
   const position = [20.5937, 78.9629]; // Center of India (lat, lon)
 
   return (
-    <MapContainer center={position} zoom={5} style={{ width: '20%', height: '50%', marginLeft:'55%', marginTop:'5%' }}>
+    <MapContainer center={position} zoom={5} style={{ width: '20%', height: '10%', marginLeft:'5%', marginTop:'5%' }}>
       <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
       <Marker position={position} icon={L.icon({ iconUrl: 'https://upload.wikimedia.org/wikipedia/commons/a/a1/Location_dot_red.png', iconSize: [5, 5] })}>
         <Popup>
