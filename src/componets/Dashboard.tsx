@@ -22,7 +22,7 @@ const Dashboard = () => {
         <div className="card deaths">Deaths: {data.deaths.toLocaleString()}</div>
       </div>
 
-      <div className="filter">
+      <div className="filter" style={{marginLeft:"40%"}}>
         <label htmlFor="state-select">Filter by State:</label>
         <select id="state-select" value={selectedState} onChange={handleStateChange}>
           <option value="All">All</option>

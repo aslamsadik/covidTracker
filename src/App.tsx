@@ -7,14 +7,14 @@ import Dashboard from './componets/Dashboard';
 import PieChart from './componets/PieChart';
 import LineChart from './componets/LineChart';
 import Map from './componets/Map';
-import { RootState } from './store'; // ✅ Add this import
+import { RootState } from './store'; 
 import './App.css';
 
 function App() {
   const dispatch = useDispatch();
 
-  const covidData = useSelector((state: RootState) => state.covid.dataByState); // ✅ select covid data
-  const selectedState = useSelector((state: RootState) => state.covid.selectedState); // ✅ select selected state
+  const covidData = useSelector((state: RootState) => state.covid.dataByState); //select covid data
+  const selectedState = useSelector((state: RootState) => state.covid.selectedState); //select selected state
 
   useEffect(() => {
     const getData = async () => {
@@ -26,17 +26,18 @@ function App() {
 
   return (
     <div className="App">
-      <h1>COVID Tracker Dashboard</h1>
+      <h1 >COVID Tracker Dashboard</h1>
       <Dashboard />
+      <span>Pie Chart</span>
       <div className="visuals">
         <div className="chart-box">
           <PieChart />
         </div>
-        <div className="chart-box" style={{marginLeft:"30px"}}>
-          {/* ✅ Pass required props to LineChart */}
+        <div className="chart-box">
           <LineChart covidData={covidData} selectedState={selectedState} />
         </div>
       </div>
+  
       <h1>Map</h1>
       <div className="chart-box">
         <Map />

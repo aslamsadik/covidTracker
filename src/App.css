@@ -1,17 +1,16 @@
 body, html {
+  background-image: url('https://img.freepik.com/free-vector/abstract-background-design-dark-green_53876-59276.jpg'); 
   overflow-x: hidden;
-  width: 100%;
+  width:97%;
+  padding: 10px 10px 10px;
   background-color: #7aa4b7;
 }
 
-.App {
-  max-width: 1200px;
-  justify-content: space-between;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-  box-sizing: border-box;
+h1{
+  margin-left: 40%;
+  color: white;
 }
+
 
 .dashboard {
   display: flex;
@@ -46,10 +45,11 @@ body, html {
 
 .visuals {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 40px;
   margin-bottom: 40px;
+  background-color: #28a745;
 }
 
 .chart-box {
