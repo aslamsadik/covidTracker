@@ -65,6 +65,13 @@ Displays numeric stats in cards:
 - Fetches and dispatches COVID data
 - Renders all components: Dashboard, Pie Chart, Line Chart, Map
 
+## 🧠 Optimization Techniques Used
+
+## ✅ Lazy Loading 
+
+- **React.lazy() + Suspense** is used to load components (`PieChart`, `LineChart`, `Map`, etc.) only when needed, improving initialload time.
+- Components are dynamically imported in `App.tsx` like this:
+
 ---
 
 

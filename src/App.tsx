@@ -1,20 +1,25 @@
-// Main entry with dashboard + chart components
-import React, { useEffect } from 'react';
+// // Main entry with dashboard + chart components
+
+// App.tsx - Optimized with Lazy Loading and Suspense
+
+import { useEffect, lazy, Suspense } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setCovidData } from './store/covidSlice';
 import { fetchCovidData } from './services/covidService';
-import Dashboard from './componets/Dashboard';
-import PieChart from './componets/PieChart';
-import LineChart from './componets/LineChart';
-import Map from './componets/Map';
 import { RootState } from './store'; 
 import './App.css';
+
+// Lazy loaded components
+const Dashboard = lazy(() => import('./componets/Dashboard'));
+const PieChart = lazy(() => import('./componets/PieChart'));
+const LineChart = lazy(() => import('./componets/LineChart'));
+const Map = lazy(() => import('./componets/Map'));
 
 function App() {
   const dispatch = useDispatch();
 
-  const covidData = useSelector((state: RootState) => state.covid.dataByState); //select covid data
-  const selectedState = useSelector((state: RootState) => state.covid.selectedState); //select selected state
+  const covidData = useSelector((state: RootState) => state.covid.dataByState);
+  const selectedState = useSelector((state: RootState) => state.covid.selectedState);
 
   useEffect(() => {
     const getData = async () => {
@@ -26,21 +31,32 @@ function App() {
 
   return (
     <div className="App">
-      <h1 >COVID Tracker Dashboard</h1>
-      <Dashboard />
+      <h1>COVID Tracker Dashboard</h1>
+
+      <Suspense fallback={<div>Loading Dashboard...</div>}>
+        <Dashboard />
+      </Suspense>
+
       <span>Pie Chart</span>
       <div className="visuals">
         <div className="chart-box">
-          <PieChart />
+          <Suspense fallback={<div>Loading Pie Chart...</div>}>
+            <PieChart />
+          </Suspense>
         </div>
+
         <div className="chart-box">
-          <LineChart covidData={covidData} selectedState={selectedState} />
+          <Suspense fallback={<div>Loading Line Chart...</div>}>
+            <LineChart covidData={covidData} selectedState={selectedState} />
+          </Suspense>
         </div>
       </div>
-  
+
       <h1>Map</h1>
       <div className="chart-box">
-        <Map />
+        <Suspense fallback={<div>Loading Map...</div>}>
+          <Map />
+        </Suspense>
       </div>
     </div>
   );
