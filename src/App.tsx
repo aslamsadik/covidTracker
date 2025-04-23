@@ -36,10 +36,10 @@ function App() {
       <Suspense fallback={<div>Loading Dashboard...</div>}>
         <Dashboard />
       </Suspense>
-
-      <span>Pie Chart</span>
+      
       <div className="visuals">
         <div className="chart-box">
+          <span>Datas in chart </span>
           <Suspense fallback={<div>Loading Pie Chart...</div>}>
             <PieChart />
           </Suspense>

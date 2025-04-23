@@ -73,6 +73,13 @@ Displays numeric stats in cards:
 - Components are dynamically imported in `App.tsx` like this:
 
 ---
+git clone https://github.com/aslamsadik/covidTracker.git
+cd covidTracker
+npm install
+npm start
+
+
+Demo url: https://www.linkedin.com/feed/update/urn:li:activity:7318330497703550976/
 
 
 
